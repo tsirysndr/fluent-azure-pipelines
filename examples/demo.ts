@@ -1,4 +1,4 @@
-import { AzurePipeline } from "../mod.ts";
+import { AzurePipeline } from "https://deno.land/x/fluent_azure_pipelines@v0.1.1/mod.ts";
 
 const azurePipeline = new AzurePipeline();
 
