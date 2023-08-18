@@ -9,7 +9,7 @@ Fluent Azure Pipelines is a deno module for generating Azure Pipelines configura
 ## 🚀 Usage
 
 ```typescript
-import { AzurePipeline } from "https://deno.land/x/fluent_azure_pipeline/mod.ts";
+import { AzurePipeline } from "https://deno.land/x/fluent_azure_pipelines/mod.ts";
 
 const azurePipeline = new AzurePipeline();
 
