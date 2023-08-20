@@ -1,4 +1,4 @@
-import { stringify } from "yaml";
+import { stringify } from "https://esm.sh/v131/yaml@2.3.1";
 import {
   AzurePipelineYaml,
   Pool,
