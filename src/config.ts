@@ -51,7 +51,7 @@ class AzurePipeline {
     )}`;
   }
 
-  save(path: "azure-pipelines.yml") {
+  save(path = "azure-pipelines.yml") {
     const config = this.toString();
     Deno.writeTextFileSync(path, config);
   }
