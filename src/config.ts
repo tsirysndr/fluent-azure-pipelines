@@ -31,6 +31,17 @@ class AzurePipeline {
     return this;
   }
 
+  variables(values: Record<string, string>): AzurePipeline {
+    this.yaml.variables = values;
+    return this;
+  }
+
+  variable(key: string, value: string): AzurePipeline {
+    this.yaml.variables = this.yaml.variables || {};
+    this.yaml.variables[key] = value;
+    return this;
+  }
+
   steps(values: Step[]): AzurePipeline {
     for (const value of values) {
       StepSchema.parse(value);
