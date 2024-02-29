@@ -5,6 +5,7 @@
       "jsr:@std/assert@^0.217.0": "jsr:@std/assert@0.217.0",
       "jsr:@std/fmt@^0.217.0": "jsr:@std/fmt@0.217.0",
       "jsr:@std/testing": "jsr:@std/testing@0.217.0",
+      "jsr:@std/testing@0.217.0": "jsr:@std/testing@0.217.0",
       "npm:yaml@2.3.1": "npm:yaml@2.3.1",
       "npm:zod@3.22.1": "npm:zod@3.22.1"
     },
