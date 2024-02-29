@@ -1,6 +1,6 @@
 {
   "name": "@tsirysndr/fluent-az-pipelines",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "exports": "./mod.ts",
   "tasks": {
     "esm:add": "deno run -A https://esm.sh/v128 add",
