@@ -2,6 +2,7 @@
 
 [![deno module](https://shield.deno.dev/x/fluent_azure_pipelines)](https://deno.land/x/fluent_azure_pipelines)
 ![deno compatibility](https://shield.deno.dev/deno/^1.34)
+[![](https://jsr.io/badges/@tsirysndr/fluent-az-pipelines)](https://jsr.io/@tsirysndr/fluent-az-pipelines)
 [![](https://img.shields.io/codecov/c/gh/tsirysndr/fluent-azure-pipelines)](https://codecov.io/gh/tsirysndr/fluent-azure-pipelines)
 
 Fluent Azure Pipelines is a deno module for generating Azure Pipelines configuration (`azure-pipelines.yml`) files easily and fluently.
