@@ -10,19 +10,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: denolib/setup-deno@v2
-        with:
-          deno-version: v1.36
       - name: Setup Fluent CI CLI
-        run: deno install -A -r https://cli.fluentci.io -n fluentci
-      - name: Setup Dagger
-        run: |
-          curl -L https://dl.dagger.io/dagger/install.sh | DAGGER_VERSION=0.8.1 sh
-          sudo mv bin/dagger /usr/local/bin
-          dagger version
-      - name: Run Dagger Pipelines
-        run: dagger run fluentci deno_pipeline fmt test
+        uses: fluentci-io/setup-fluentci@v5
+        with:
+          wasm: true
+          plugin: deno
+          args: |
+            fmt
+            test
       - name: Upload to Codecov
-        run: dagger run fluentci codecov_pipeline
+        run: fluentci run --wasm codecov upload
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  publish:
+    needs: tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.43
+      - name: Publish package
+        run: deno publish --allow-slow-types

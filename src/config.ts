@@ -1,9 +1,9 @@
 import { stringify } from "../deps.ts";
 import {
-  AzurePipelineYaml,
-  Pool,
+  type AzurePipelineYaml,
+  type Pool,
   PoolSchema,
-  Step,
+  type Step,
   StepSchema,
 } from "./spec.ts";
 
@@ -46,13 +46,25 @@ class AzurePipeline {
     for (const value of values) {
       StepSchema.parse(value);
     }
-    this.yaml.steps = values;
+    this.yaml.steps = values.map((value) => ({
+      ...value,
+      script: value.script
+        ?.split("\n")
+        .map((line) => line.trim())
+        .join("\n"),
+    }));
     return this;
   }
 
   step(value: Step): AzurePipeline {
     StepSchema.parse(value);
-    this.yaml.steps.push(value);
+    this.yaml.steps.push({
+      ...value,
+      script: value.script
+        ?.split("\n")
+        .map((line) => line.trim())
+        .join("\n"),
+    });
     return this;
   }
 
