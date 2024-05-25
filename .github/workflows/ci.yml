@@ -18,6 +18,7 @@ jobs:
           args: |
             fmt
             test
+            coverage
       - name: Upload to Codecov
         run: fluentci run --wasm codecov upload
         env:
